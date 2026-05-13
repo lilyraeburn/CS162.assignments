@@ -1,42 +1,13 @@
-class Person:
-    def __init__(self, name):
-        self.name = name
-        self.children = []
-    def add_child(self, child):
-        self.children.append(child)
-
-def find_person(person, name):
-    if person.name == name:
-        return person
-    for child in person.children:
-        search = find_person(child, name)
-        if search:
-            return search
-    return None
-
-alice = Person("Alice")
-bob = Person("Bob")
-carol = Person("Carol")
-daniel = Person("Daniel")
-emma = Person("Emma")
-frank = Person("Frank")
-
-alice.add_child(bob)
-alice.add_child(carol)
-bob.add_child(daniel)
-carol.add_child(emma)
-carol.add_child(frank)
-
-search_name = input("Enter a name to search for: ")
-result = find_person(carol, search_name)
-
-if result:
-    print("Found: ", result.name)
-    if len(result.children) > 0:
-        print("Children: ")
-        for child in result.children:
-            print(child.name)
-    else:
-        print("No children")
-else:
-    print("No person found.")
+import numpy as np
+array = np.random.randint(1,99, size=(5, 5), dtype=int)
+np.mean(array, axis=1)
+print("Array: ")
+print(array)
+print("Number in row 2, column 3: ")
+print(array[1][2])
+print("Sum of all elements: ")
+print(np.sum(array))
+print("Mean of each row: ")
+print(np.mean(array, axis=1))
+print("Maximum value in each column: ")
+print(np.max(array, axis=0))
